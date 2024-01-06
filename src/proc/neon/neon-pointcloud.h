@@ -35,5 +35,5 @@ namespace librealsense
         std::vector<float> _pre_compute_map_y;
 
         void pre_compute_x_y_map();
-    }
+    };
 }

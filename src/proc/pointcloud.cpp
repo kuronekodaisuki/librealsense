@@ -18,6 +18,8 @@
 #endif
 #ifdef __SSSE3__
 #include "proc/sse/sse-pointcloud.h"
+#elif __NEON__
+#include "proc/neon/neon-pointcloud.h"
 #endif
 
 namespace librealsense
@@ -394,6 +396,8 @@ namespace librealsense
         #else
         #ifdef __SSSE3__
             return std::make_shared<librealsense::pointcloud_sse>();
+        #elif __NEON__
+            return std::make_shared<librealsense::pointcloud_neon>();
         #else
             return std::make_shared<librealsense::pointcloud>();
         #endif
