@@ -13,6 +13,13 @@
     #pragma pack(push, 1) // All structs in this file are assumed to be byte-packed
     namespace librealsense
     {
+        /// <summary>
+        /// Convert image
+        /// </summary>
+        /// <typeparam name="FORMAT"></typeparam>
+        /// <param name="d">destination</param>
+        /// <param name="s">source</param>
+        /// <param name="n">data size</param>
         template<rs2_format FORMAT> void unpack_yuy2(byte * const d[], const byte * s, int n)
         {
             assert(n % 16 == 0); // All currently supported color resolutions are multiples of 16 pixels. Could easily extend support to other resolutions by copying final n<16 pixels into a zero-padded buffer and recursively calling self for final iteration.
